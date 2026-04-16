@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Base Styles (following design-system.md)
+   ========================================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fredoka', sans-serif;
+  }
+}
+
+/* =========================================================
+   Accessibility
+   ========================================================= */
+:focus-visible {
+  outline: 3px solid #FB923C;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   Custom Utilities
+   ========================================================= */
+@layer utilities {
+  .text-gradient-accent {
+    background: linear-gradient(120deg, #F97316, #F472B6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-hero {
+    background:
+      radial-gradient(ellipse at top left, rgba(14,165,233,.15), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(249,115,22,.12), transparent 50%),
+      linear-gradient(180deg, #F0F9FF 0%, #FFF7ED 100%);
+  }
+
+  .bg-budget-section {
+    background: linear-gradient(180deg, #0C4A6E, #0C4A6E);
+  }
+}
+
+/* Hide scrollbar for nav */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}
