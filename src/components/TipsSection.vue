@@ -17,8 +17,8 @@ const variantIconColor = {
 </script>
 
 <template>
-  <section id="tips" class="bg-white py-24">
-    <div class="max-w-container mx-auto px-6 text-center">
+  <section id="tips" class="bg-white py-16 md:py-24">
+    <div class="max-w-container mx-auto px-4 md:px-6 text-center">
       <span
         class="inline-block font-heading font-medium text-sm tracking-[0.15em] uppercase text-orange-500 px-4 py-1.5 bg-orange-500/10 rounded-full mb-4"
       >
@@ -31,11 +31,11 @@ const variantIconColor = {
         盛夏關西 32–36°C 高溫，親子旅行的 4 大備戰重點。
       </p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
         <div
           v-for="tip in tips"
           :key="tip.title"
-          class="reveal p-8 px-7 rounded-card-lg border border-slate-200 transition-all duration-300 ease-custom cursor-default hover:-translate-y-1.5 hover:shadow-card-md hover:border-sky-200 text-left"
+          class="reveal p-6 md:p-8 md:px-7 rounded-card-lg border border-slate-200 transition-all duration-300 ease-custom cursor-default hover:-translate-y-1.5 hover:shadow-card-md hover:border-sky-200 text-left"
           :class="variantGradient[tip.variant] || variantGradient.default"
         >
           <!-- Icon box -->

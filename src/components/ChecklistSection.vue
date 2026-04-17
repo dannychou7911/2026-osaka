@@ -14,8 +14,8 @@ function toggleItem(index) {
 </script>
 
 <template>
-  <section id="checklist" class="bg-white py-24">
-    <div class="max-w-container mx-auto px-6 text-center">
+  <section id="checklist" class="bg-white py-16 md:py-24">
+    <div class="max-w-container mx-auto px-4 md:px-6 text-center">
       <span
         class="inline-block font-heading font-medium text-sm tracking-[0.15em] uppercase text-orange-500 px-4 py-1.5 bg-orange-500/10 rounded-full mb-4"
       >
@@ -28,11 +28,11 @@ function toggleItem(index) {
         點擊任一項目可標記完成，保持行前準備井然有序。
       </p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
         <div
           v-for="(item, index) in checklist"
           :key="index"
-          class="reveal flex gap-3.5 items-start p-4.5 px-5 rounded-card-md border cursor-pointer transition-all duration-200 ease-custom"
+          class="reveal flex gap-3.5 items-start p-4 md:p-4.5 md:px-5 rounded-card-md border cursor-pointer transition-all duration-200 ease-custom"
           :class="
             doneItems.has(index)
               ? 'bg-slate-50 border-slate-200'

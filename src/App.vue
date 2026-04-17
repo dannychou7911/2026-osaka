@@ -23,8 +23,8 @@ useScrollReveal()
   <OverviewRibbon />
 
   <!-- Itinerary Section -->
-  <section id="itinerary" class="bg-sky-50 py-24 md:py-24">
-    <div class="max-w-container mx-auto px-4.5 md:px-6">
+  <section id="itinerary" class="bg-sky-50 py-16 md:py-24">
+    <div class="max-w-container mx-auto px-4 md:px-6">
       <div class="reveal mb-12">
         <span
           class="inline-block font-heading font-medium text-sm tracking-[0.15em] uppercase text-orange-500 px-4 py-1.5 bg-orange-500/10 rounded-full mb-4"

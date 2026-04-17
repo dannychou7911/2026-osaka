@@ -3,8 +3,8 @@ import { days } from '../data/itinerary.js'
 </script>
 
 <template>
-  <section id="overview" class="bg-white py-16 md:py-24">
-    <div class="max-w-container mx-auto px-6">
+  <section id="overview" class="bg-white py-14 md:py-24">
+    <div class="max-w-container mx-auto px-4 md:px-6">
       <!-- Eyebrow -->
       <span class="inline-block font-heading font-medium text-sm tracking-[0.15em] uppercase text-orange-500 px-4 py-1.5 bg-orange-500/10 rounded-full mb-4">
         行程總覽
@@ -27,7 +27,7 @@ import { days } from '../data/itinerary.js'
             v-for="day in days"
             :key="day.id"
             :href="`#day-${day.id}`"
-            class="rounded-card-md p-5 bg-gradient-to-br from-sky-50 to-white border border-slate-200 text-center cursor-pointer hover:-translate-y-1.5 hover:shadow-card-md hover:border-sky-400 transition-all duration-300 ease-custom"
+            class="rounded-card-md p-4 md:p-5 bg-gradient-to-br from-sky-50 to-white border border-slate-200 text-center cursor-pointer hover:-translate-y-1.5 hover:shadow-card-md hover:border-sky-400 transition-all duration-300 ease-custom"
           >
             <span class="font-heading font-semibold text-xs text-orange-500 tracking-[0.1em]">
               DAY {{ day.num }}

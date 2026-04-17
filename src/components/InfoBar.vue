@@ -16,8 +16,8 @@ const variantClasses = {
 </script>
 
 <template>
-  <div class="py-8 bg-white border-y border-slate-200">
-    <div class="max-w-container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="py-6 md:py-8 bg-white border-y border-slate-200">
+    <div class="max-w-container mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
       <div
         v-for="(item, index) in items"
         :key="index"
