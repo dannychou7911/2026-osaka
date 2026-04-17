@@ -68,41 +68,77 @@ export const days = [
     date: '7/25 六',
     title: '大阪海洋日',
     subtitle: '2026/7/25 (六) · 海遊館 + 天保山 + 道頓堀',
-    tag: { text: '🟡 待細化', variant: 'default' },
+    tag: { text: '✨ Google 已驗證', variant: 'orange' },
     badgeGradient: 'from-cyan-500 to-cyan-600',
     timeline: [
-      { time: '上午', content: '<strong>海遊館</strong>｜鯨鯊、水母、室內冷氣強，3 歲小孩超愛' },
-      { time: '中午', content: '天保山 Market Place 美食街，多選擇適合 8 人大團體' },
-      { time: '下午', content: '<strong>樂高樂園探索中心</strong>＋天保山大觀覽車' },
-      { time: '傍晚', content: '<strong>道頓堀 / 心齋橋</strong>｜章魚燒、一蘭拉麵、蟹道樂' },
+      { time: '09:00', content: '飯店出發｜御堂筋線 → 本町 → 中央線 → 大阪港，約 25 分鐘 ¥280/人' },
+      { time: '09:30 – 12:30', content: '<strong>海遊館</strong>｜週六 09:30 開館（⭐ 4.5 / 57,519 則評論）' },
+      { time: '12:30 – 13:00', content: '天保山 Market Place 輕食點心｜<em>正餐留到後面吃，Market Place 食物評價普通 3.9</em>' },
+      { time: '13:00 – 14:30', content: '<strong>LEGOLAND 樂高探索中心</strong>｜Market Place 3F（⭐ 4.1 / 4,772 則評論）' },
+      { time: '14:30 – 15:00', content: '<strong>天保山大觀覽車</strong>｜選透明車廂免費升級（⭐ 4.5）' },
+      { time: '15:00 – 15:30', content: '大阪港 → 難波｜中央線 + 御堂筋線' },
+      { time: '16:00 – 17:30', content: '<strong>回飯店休息</strong>｜3 歲小孩午睡補眠，晚上才有體力' },
+      { time: '17:30 – 18:30', content: '心齋橋筋商店街逛街' },
+      { time: '18:30 – 19:00', content: '<strong>道頓堀</strong>｜Glico 跑跑人、蟹道樂招牌、拍照' },
+      { time: '19:00 – 20:30', content: '<strong>Daibokujou 大牧場晚餐</strong>｜神戶牛吃到飽（⭐ 4.8）' },
     ],
     highlights: [
       {
         variant: 'default',
-        title: '海遊館 Kaiyukan',
-        content: '全室內冷氣涼爽，參觀 3–4 小時，嬰兒車可入館。',
+        title: '海遊館 Kaiyukan ⭐ 4.5',
+        content: '全球最大級水族館，7F → 3F 單向動線，主水槽跨 5 層樓可看鯨鯊。週六 09:30 開館，建議 <strong>一開館就進避開人潮</strong>。',
+        list: [
+          '📍 港區海岸通 1-1-10（大阪港駅步行 5 分）',
+          '🕐 週六 09:30 – 20:00（最後入館 19:00）',
+          '📞 06-6576-5501',
+          '⚠️ <strong>務必線上預購票</strong>：雨天/週末現場要等 3 小時',
+          '♿ 嬰兒車有電梯專用通道、支援信用卡 & Apple Pay',
+        ],
         tags: ['成人 ¥2,700', '小學生 ¥1,400', '3 歲 ¥700'],
       },
       {
         variant: 'orange',
-        title: '樂高樂園探索中心',
-        content: '位於天保山 Market Place 內，適合 3–10 歲，室內冷氣涼爽，建議與海遊館買套票更划算。',
+        title: 'LEGOLAND 探索中心 ⭐ 4.1',
+        content: '天保山 Market Place <strong>3F</strong>，1.5–2 小時可玩完。4D 電影、大阪城樂高微縮、地震體驗區。',
+        list: [
+          '🕐 週六 10:00 – 19:00（平日到 18:00）',
+          '💡 <strong>線上提前訂便宜不少</strong>，與海遊館買聯票最划算',
+          '👶 適合國小以下最佳，9 歲偏上限但 4D 和建造區仍喜愛',
+        ],
       },
       {
         variant: 'pink',
-        title: '天保山大觀覽車',
-        content: '直徑 100 公尺，俯瞰大阪灣景色。6 人一車 → 8 人需分兩車乘坐。',
+        title: '天保山大觀覽車 ⭐ 4.5',
+        content: '高 112.5m，車廂可載 480 人。<strong>透明車廂免費升級（多等 10 分鐘值得）</strong>。一圈 15 分鐘。',
+        list: [
+          '🕐 週六 10:00 – 22:00',
+          '📞 06-6576-6222',
+          '🎡 6 人一車 → 8 人需分兩車',
+        ],
+      },
+      {
+        variant: 'green',
+        title: '🍽️ 晚餐：Daibokujou 大牧場 ⭐ 4.8',
+        content: '道頓堀橋邊最高評分燒肉吃到飽，<strong>神戶牛 × 日本黑毛和牛 × 海鮮</strong>。員工會說中文、窗邊席看河景。',
+        list: [
+          '📍 道頓堀 1-6-15 コムラード・ドウトンビル 5F',
+          '📞 06-6214-5529（<strong>務必預約</strong>，週六 18:00 會爆滿）',
+          '🕐 11:00 – 24:00',
+          '🌐 daibokujyo.gorp.jp',
+          '👨‍👩‍👧 good_for_groups ✅ / good_for_children ✅',
+        ],
       },
       {
         variant: 'purple',
-        title: '雨天 / 酷熱備案',
+        title: '備選晚餐 & 酷熱備案',
         list: [
-          'NIFREL 生命館（萬博公園，藝術型水族館）',
-          'Kids Plaza 已排入 Day 6，不需重複',
+          '🦀 <strong>蟹道樂本店</strong> ⭐ 4.2｜觀光代表性強、有兒童菜單、套餐約 ¥11,000/人（06-6211-8975）',
+          '🍲 <strong>但馬屋DX 心齋橋</strong> ⭐ 4.5｜涮涮鍋吃到飽、12 種湯底（近期有服務品質爭議）',
+          '☔ 雨天備案：NIFREL 生命館（萬博公園，藝術型水族館）',
         ],
       },
     ],
-    budget: { label: '預估花費（8 人）', detail: '門票 + 餐費 + 交通', amount: '72,400' },
+    budget: { label: '預估花費（8 人）', detail: '門票 + 晚餐 + 交通', amount: '82,000' },
   },
   {
     id: 3,
@@ -392,7 +428,7 @@ export const tips = [
 ]
 
 export const budgetItems = [
-  { day: 'DAY 2', theme: '🐧 大阪海洋', amount: '72,400' },
+  { day: 'DAY 2', theme: '🐧 大阪海洋', amount: '82,000' },
   { day: 'DAY 3', theme: '🎢 USJ 影城', amount: '260,000' },
   { day: 'DAY 4', theme: '🚂 京都博物館', amount: '60,000' },
   { day: 'DAY 5', theme: '🦌 奈良餵鹿', amount: '64,000' },
@@ -402,7 +438,7 @@ export const budgetItems = [
 export const budgetTotal = {
   label: '預估總花費',
   detail: '未含住宿、機票、伴手禮採購、個人消費',
-  amount: '501,500',
+  amount: '511,100',
 }
 
 export const checklist = [
