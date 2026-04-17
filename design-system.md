@@ -127,21 +127,24 @@ Nunito: 300, 400, 500, 600, 700
 | **Eyebrow** | `0.875rem` (14px) | 500 | — | `letter-spacing: 0.15em; text-transform: uppercase` |
 | **Label / meta** | `0.8125rem` (13px) | 600 | — | — |
 | **Day-num** | `0.75rem` (12px) | 600 | — | `letter-spacing: 0.1em` |
-| **Stat number** | `clamp(1.75rem, 3vw, 2.5rem)` | 700 | 1 | Fredoka |
-| **Budget amount** | `1.75rem` | 700 | — | Fredoka |
+| **Stat number** | `clamp(1.75rem, 3vw, 2.5rem)` | 700 | 1 | Fredoka（mobile `text-2xl` / md `text-3xl`） |
+| **Budget grid amount** | `1.375rem` → `1.75rem` | 700 | — | Fredoka（mobile → md） |
+| **Budget mini amount**（Day Card 內預算條） | `1.5rem` (`text-2xl`) | 700 | — | Fredoka |
 | **Budget total** | `clamp(2rem, 4vw, 2.75rem)` | 700 | — | Fredoka |
 
 ---
 
 ## 4. 圓角系統 (Border Radius)
 
-| Token | 值 | Tailwind | 用途 |
-|-------|------|----------|------|
-| `radius-sm` | `12px` | `rounded-xl` | info icon、highlight block、budget item |
-| `radius-md` | `18px` | `rounded-2xl` | ribbon-day、stat-card、tip-card |
-| `radius-lg` | `28px` | `rounded-3xl` | day-card、budget-total、tip-card |
-| `radius-xl` | `40px` | `rounded-[40px]` | 特殊大圓角 |
-| `pill` | `999px` | `rounded-full` | nav、eyebrow、tag、tab、checkbox |
+已在 `tailwind.config.js` 以 `card-*` 前綴自訂，直接使用對應 utility。
+
+| Token | 值 | Tailwind utility | 用途 |
+|-------|------|------------------|------|
+| `card-sm` | `12px` | `rounded-card-sm` | info icon、highlight block、budget item、tag |
+| `card-md` | `18px` | `rounded-card-md` | ribbon-day、stat-card、budget mini bar、toggle button |
+| `card-lg` | `28px` | `rounded-card-lg` | day-card、budget-total、tip-card、checklist item |
+| `card-xl` | `40px` | `rounded-card-xl` | 特殊大圓角（保留） |
+| `pill` | `999px` | `rounded-full` | nav、eyebrow、tag、checkbox、小 chip |
 
 > **風格特徵**：整體偏大圓角，營造柔和親子感。最小圓角 12px，沒有直角元素。
 
@@ -149,57 +152,57 @@ Nunito: 300, 400, 500, 600, 700
 
 ## 5. 陰影系統 (Box Shadow)
 
-| Token | 值 | 用途 |
-|-------|------|------|
-| `shadow-sm` | `0 2px 6px rgba(15,23,42,.06)` | 預設卡片、info icon |
-| `shadow-md` | `0 8px 24px rgba(14,165,233,.12)` | hover 狀態、nav |
-| `shadow-lg` | `0 20px 50px rgba(14,165,233,.18)` | day-card hover |
-| `shadow-orange` | `0 12px 30px rgba(249,115,22,.3)` | CTA button、budget total、active tab |
+已在 `tailwind.config.js` 以 `card-*` 前綴自訂，直接使用對應 utility。
+
+| Token | 值 | Tailwind utility | 用途 |
+|-------|------|------------------|------|
+| `card-sm` | `0 2px 6px rgba(15,23,42,.06)` | `shadow-card-sm` | 預設卡片、info icon |
+| `card-md` | `0 8px 24px rgba(14,165,233,.12)` | `shadow-card-md` | hover 狀態、nav |
+| `card-lg` | `0 20px 50px rgba(14,165,233,.18)` | `shadow-card-lg` | day-card hover |
+| `card-orange` | `0 12px 30px rgba(249,115,22,.3)` | `shadow-card-orange` | CTA button、budget total bar |
 
 > **風格特徵**：陰影帶有 sky-blue 或 orange 色調（非灰色），呼應品牌色。
-
-### Tailwind 自訂陰影建議
-
-```js
-// tailwind.config.js
-boxShadow: {
-  'sm': '0 2px 6px rgba(15,23,42,.06)',
-  'md': '0 8px 24px rgba(14,165,233,.12)',
-  'lg': '0 20px 50px rgba(14,165,233,.18)',
-  'orange': '0 12px 30px rgba(249,115,22,.3)',
-}
-```
 
 ---
 
 ## 6. 間距與佈局 (Spacing & Layout)
 
+> 實作為 **mobile-first**：預設寫 mobile 值，`md:` 以上套用桌機值。
+
 ### Container
 
-| 屬性 | 值 |
-|------|------|
-| max-width | `1200px` |
-| padding | `0 24px`（mobile: `0 18px`） |
-| margin | `0 auto` |
+| 屬性 | 值 | Tailwind |
+|------|------|----------|
+| max-width | `1200px` | `max-w-container`（自訂）|
+| 水平 padding | `16px` → `24px` | `px-4 md:px-6` |
+| margin | `0 auto` | `mx-auto` |
 
-### Section
+### Section vertical padding
 
-| 螢幕 | padding |
-|-------|---------|
-| Desktop | `96px 0` |
-| Tablet (≤900px) | `72px 0` |
+| 區塊 | Mobile | ≥ md (768px) | Tailwind |
+|------|--------|-------------|----------|
+| 一般 section（overview / itinerary / tips / budget / checklist）| `64px` | `96px` | `py-16 md:py-24` |
+| Hero | `48px` top / `80px` bottom | `80px` / `112px` | `py-12 pb-20 md:py-20 md:pb-28` |
+| InfoBar（分隔帶）| `24px` | `32px` | `py-6 md:py-8` |
 
-### Grid 設定
+### Grid 設定（實作對照）
 
-| 區域 | 欄數 | gap |
-|------|------|-----|
-| Hero stats | `repeat(4, 1fr)` → tablet `repeat(2, 1fr)` | `16px` |
-| Overview ribbon | `repeat(7, 1fr)` → tablet `repeat(4, 1fr)` → mobile `repeat(2, 1fr)` | `12px` |
-| Day body | `1fr 1fr` → tablet `1fr` | `40px`（tablet `28px`） |
-| Tips grid | `repeat(auto-fit, minmax(280px, 1fr))` | `24px` |
-| Budget grid | `repeat(auto-fit, minmax(200px, 1fr))` | `16px` |
-| Checklist grid | `repeat(auto-fit, minmax(280px, 1fr))` | `16px` |
-| Info bar | `repeat(auto-fit, minmax(240px, 1fr))` | `24px` |
+| 區域 | Mobile | sm (≥640) | md (≥768) | lg (≥1024) | gap |
+|------|--------|-----------|-----------|-----------|-----|
+| Hero stats | 2 欄 | — | 4 欄 | — | `gap-3 md:gap-4` |
+| Overview ribbon | 2 欄 | 4 欄 | — | 7 欄 | `gap-3` |
+| Day body | 1 欄 | — | 2 欄 | — | `gap-7 md:gap-10` |
+| Tips grid | 1 欄 | 2 欄 | — | 4 欄 | `gap-5 md:gap-6` |
+| Budget grid | 2 欄 | 3 欄 | — | 5 欄 | `gap-3 md:gap-4` |
+| Checklist grid | 1 欄 | 2 欄 | — | — | `gap-3 md:gap-4` |
+| InfoBar | 1 欄 | 2 欄 | — | 4 欄 | `gap-5 md:gap-6` |
+
+### 有效的 spacing scale 提醒
+
+`tailwind.config.js` **未擴展 spacing**，僅能使用 Tailwind 預設值：
+
+- ✅ 有效的半單位：`0.5 / 1.5 / 2.5 / 3.5`
+- ❌ **禁止使用**：`4.5 / 5.5 / 6.5 / 7.5`（會被 Tailwind 丟棄，產生 `padding: 0`）
 
 ---
 
@@ -207,18 +210,16 @@ boxShadow: {
 
 ### Easing
 
-```
---ease: cubic-bezier(.22, .61, .36, 1)
-```
-
-Tailwind 無法直接對應，需自訂：
+已在 `tailwind.config.js` 自訂，utility 為 `ease-custom`：
 
 ```js
 // tailwind.config.js
 transitionTimingFunction: {
-  'ease-custom': 'cubic-bezier(.22,.61,.36,1)',
+  custom: 'cubic-bezier(.22,.61,.36,1)',
 }
 ```
+
+使用方式：`transition-all duration-300 ease-custom`
 
 ### 入場動畫
 
@@ -306,16 +307,16 @@ to   { opacity: 1; transform: translateY(0); }
 
 ### Day Card
 
-- 白色背景，`rounded-3xl`，padding `40px`
-- 邊框 `slate-200`，陰影 `shadow-sm`
+- 白色背景，`rounded-card-lg`（28px），padding `p-6 md:p-10`（24 → 40px）
+- 邊框 `slate-200`，陰影 `shadow-card-sm`，hover 升級為 `shadow-card-lg`
 - Header: badge + title + tag，底部 `border-bottom: 2px dashed slate-200`
-- Body: 左右兩欄（timeline + highlights）
+- Body: 單欄（mobile）→ 左右兩欄（≥ md），`gap-7 md:gap-10`
 
 ### Day Badge
 
-- `72px × 72px`，`rounded-2xl`
+- `60px × 60px`（mobile）→ `72px × 72px`（≥ md），`rounded-card-md`（18px）
 - 白色文字，gradient 背景（每天不同色）
-- 數字 Fredoka 700 `1.75rem`
+- 數字 Fredoka 700：`1.375rem` → `1.75rem`（mobile → md）
 - "DAY" label `0.6875rem`，`letter-spacing: 0.15em`，`opacity: 0.85`
 
 ### Timeline
@@ -327,9 +328,9 @@ to   { opacity: 1; transform: translateY(0); }
 
 ### Highlight Block
 
-- `rounded-2xl`，padding `20px 22px`
-- 左邊框 `4px solid`（sky/orange/pink/green/purple）
-- 背景漸層 `linear-gradient(160deg, 淺色, white)`
+- `rounded-card-md`（18px），padding `p-5`（20px）
+- 左邊框 `border-l-4`（sky / orange / pink / emerald / violet）
+- 背景 `bg-gradient-to-br` 從淺色到白色
 - 變體：default(sky)、orange、pink、green、purple
 
 ### Tag / Pill
@@ -340,23 +341,25 @@ to   { opacity: 1; transform: translateY(0); }
 
 ### Budget Mini（Day Card 內的預算條）
 
-- `rounded-2xl`，gradient `sky-900 → sky-700`
+- `rounded-card-md`（18px），`bg-gradient-to-br from-sky-900 to-sky-700`
+- padding：`px-5 py-4`（20px / 16px）
 - 白色文字，label `uppercase` + `letter-spacing: 0.1em`
-- 金額 Fredoka 700 `1.5rem`
+- 金額 Fredoka 700 `text-2xl`（1.5rem）
+- ⚠️ **禁用 `px-5.5 py-4.5`**：spacing scale 未擴展，會解析失敗導致 padding 為 0，文字被圓角切齊
 
 ### Tip Card
 
-- `rounded-3xl`，padding `32px 28px`
-- 漸層背景 `160deg` 從淺色到白色
-- Icon: `56px × 56px`，白色背景，`rounded-xl`，`shadow-sm`
+- `rounded-card-lg`（28px），padding `p-6 md:p-8 md:px-7`（24 → 32/28px）
+- 漸層背景 `bg-gradient-to-br` 從淺色到白色
+- Icon: `w-14 h-14`（56px），白色背景，`rounded-card-sm`（12px），`shadow-card-sm`
 - 變體：default(sky)、orange、pink、green
 
 ### Checklist Item
 
-- `rounded-2xl`，padding `18px 20px`
+- `rounded-card-md`（18px），padding `p-4 md:p-5`（16 → 20px）
 - `slate-50` 背景 + `slate-200` 邊框
-- Checkbox: `22px × 22px`，`rounded-md`（6px）
-- Done 狀態：checkbox 變 `orange-500` + 文字 `line-through slate-400`
+- Checkbox: `w-[22px] h-[22px]`，`rounded-md`（6px）
+- Done 狀態：checkbox 變 `bg-orange-500` + 文字 `line-through text-slate-400`
 
 ### Footer
 
@@ -367,11 +370,17 @@ to   { opacity: 1; transform: translateY(0); }
 
 ## 9. 響應式斷點 (Breakpoints)
 
-| 斷點 | 值 | 主要變化 |
-|------|------|---------|
-| Desktop | > 900px | 預設佈局 |
-| Tablet | ≤ 900px | day-body 單欄、hero-stats 2 欄、ribbon 4 欄、section padding 縮小 |
-| Mobile | ≤ 560px | nav 縮小隱藏品牌文字、hero padding 縮小、ribbon 2 欄、container padding 18px |
+使用 **Tailwind 預設斷點**，採 mobile-first 策略。元件主要在 `md` 分界（單欄 vs 多欄、padding 階梯）。
+
+| Tailwind prefix | 寬度（min-width） | 對應裝置 | 主要變化 |
+|---|---|---|---|
+| （預設） | `0` | Mobile（<640px）| 單欄、`py-16`、`px-4`、nav 字級縮小 |
+| `sm:` | `≥ 640px` | 大手機 / 小平板 | Tips 2 欄、Checklist 2 欄、Budget 3 欄 |
+| `md:` | `≥ 768px` | 平板 / 桌機 | Day body 2 欄、Hero stats 4 欄、`py-24`、`px-6` |
+| `lg:` | `≥ 1024px` | 桌機 | Overview ribbon 7 欄、Tips 4 欄、Budget 5 欄 |
+| `xl:` | `≥ 1280px` | 大桌機 | — (未使用) |
+
+> 文件描述歷史 900/560px 斷點為原始設計稿參考，實作已改為 Tailwind 標準斷點。
 
 ---
 
@@ -397,31 +406,37 @@ to   { opacity: 1; transform: translateY(0); }
 
 ---
 
-## 12. Tailwind CSS 自訂配置建議
+## 12. Tailwind CSS 實際配置
+
+以下為 `tailwind.config.js` 目前實裝的內容（而非建議），新增 token 時務必同步更新此區塊。
 
 ```js
 // tailwind.config.js
 export default {
+  content: ['./index.html', './src/**/*.{vue,js,ts}'],
   theme: {
     extend: {
       fontFamily: {
         heading: ['Fredoka', 'sans-serif'],
         body: ['Nunito', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
+      maxWidth: {
+        container: '1200px',
+      },
       borderRadius: {
-        'sm-custom': '12px',
-        'md-custom': '18px',
-        'lg-custom': '28px',
-        'xl-custom': '40px',
+        'card-sm': '12px',
+        'card-md': '18px',
+        'card-lg': '28px',
+        'card-xl': '40px',
       },
       boxShadow: {
-        'sm': '0 2px 6px rgba(15,23,42,.06)',
-        'md': '0 8px 24px rgba(14,165,233,.12)',
-        'lg': '0 20px 50px rgba(14,165,233,.18)',
-        'orange': '0 12px 30px rgba(249,115,22,.3)',
+        'card-sm': '0 2px 6px rgba(15,23,42,.06)',
+        'card-md': '0 8px 24px rgba(14,165,233,.12)',
+        'card-lg': '0 20px 50px rgba(14,165,233,.18)',
+        'card-orange': '0 12px 30px rgba(249,115,22,.3)',
       },
       transitionTimingFunction: {
-        'custom': 'cubic-bezier(.22,.61,.36,1)',
+        custom: 'cubic-bezier(.22,.61,.36,1)',
       },
       keyframes: {
         'fade-in-up': {
@@ -432,17 +447,31 @@ export default {
           '0%, 100%': { transform: 'translateY(0) scale(1)' },
           '50%': { transform: 'translateY(-30px) scale(1.05)' },
         },
-        pulse: {
+        'pulse-dot': {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
           '50%': { transform: 'scale(1.4)', opacity: '0.6' },
         },
       },
       animation: {
         'fade-in-up': 'fade-in-up 0.8s cubic-bezier(.22,.61,.36,1) both',
-        'float': 'float 12s ease-in-out infinite',
-        'pulse-dot': 'pulse 2s ease-in-out infinite',
+        'fade-in-up-1': 'fade-in-up 0.9s cubic-bezier(.22,.61,.36,1) 0.1s both',
+        'fade-in-up-2': 'fade-in-up 1.0s cubic-bezier(.22,.61,.36,1) 0.2s both',
+        'fade-in-up-3': 'fade-in-up 1.1s cubic-bezier(.22,.61,.36,1) 0.3s both',
+        float: 'float 12s ease-in-out infinite',
+        'float-delayed': 'float 12s ease-in-out -6s infinite',
+        'pulse-dot': 'pulse-dot 2s ease-in-out infinite',
       },
     },
   },
+  plugins: [],
 }
 ```
+
+### `src/assets/main.css` 自訂 utilities
+
+| Class | 用途 |
+|---|---|
+| `.text-gradient-accent` | Hero 副標：`linear-gradient(120deg, #F97316, #F472B6)` 文字漸層 |
+| `.bg-hero` | Hero section 底：雙 radial + linear gradient（sky-50 → #FFF7ED）|
+| `.bg-budget-section` | Budget section 底：實質為純色 `#0C4A6E`（保留 gradient 語意以便日後替換）|
+| `.scrollbar-none` | Nav 水平捲動時隱藏 scrollbar |
