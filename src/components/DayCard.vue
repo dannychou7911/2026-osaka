@@ -83,7 +83,7 @@ const highlightVariants = {
           class="relative pl-8"
           :class="[
             index < day.timeline.length - 1
-              ? 'border-l-2 border-slate-200 pb-5.5'
+              ? 'border-l-2 border-slate-200 pb-5'
               : 'border-l-2 border-transparent pb-0',
           ]"
         >
@@ -123,7 +123,7 @@ const highlightVariants = {
           />
           <ul
             v-if="highlight.list && highlight.list.length"
-            class="mt-2 pl-4.5 text-[0.9375rem] text-slate-600"
+            class="mt-2 pl-5 text-[0.9375rem] text-slate-600"
           >
             <li
               v-for="(li, liIndex) in highlight.list"
@@ -150,7 +150,7 @@ const highlightVariants = {
         <!-- Budget Mini -->
         <div
           v-if="day.budget"
-          class="mt-5 flex flex-wrap items-center justify-between gap-4 rounded-card-md bg-gradient-to-br from-sky-900 to-sky-700 px-5.5 py-4.5 text-white"
+          class="mt-5 flex flex-wrap items-center justify-between gap-4 rounded-card-md bg-gradient-to-br from-sky-900 to-sky-700 px-5 py-4 text-white"
         >
           <div>
             <p class="text-[0.8125rem] uppercase tracking-[0.1em] opacity-70">

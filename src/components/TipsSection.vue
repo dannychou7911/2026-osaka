@@ -39,7 +39,7 @@ const variantIconColor = {
           :class="variantGradient[tip.variant] || variantGradient.default"
         >
           <!-- Icon box -->
-          <div class="w-14 h-14 grid place-items-center bg-white rounded-card-sm shadow-card-sm mb-4.5">
+          <div class="w-14 h-14 grid place-items-center bg-white rounded-card-sm shadow-card-sm mb-4">
             <!-- sun -->
             <svg
               v-if="tip.icon === 'sun'"

@@ -32,7 +32,7 @@ function toggleItem(index) {
         <div
           v-for="(item, index) in checklist"
           :key="index"
-          class="reveal flex gap-3.5 items-start p-4 md:p-4.5 md:px-5 rounded-card-md border cursor-pointer transition-all duration-200 ease-custom"
+          class="reveal flex gap-3.5 items-start p-4 md:p-5 rounded-card-md border cursor-pointer transition-all duration-200 ease-custom"
           :class="
             doneItems.has(index)
               ? 'bg-slate-50 border-slate-200'
