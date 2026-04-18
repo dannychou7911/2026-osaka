@@ -13,7 +13,28 @@ export const tripInfo = {
     { icon: 'plane', label: '抵達航班', value: '7/24 (五) 18:05 · KIX', variant: 'default' },
     { icon: 'plane-return', label: '回程航班', value: '7/30 (四) 14:00 · KIX', variant: 'orange' },
     { icon: 'sun', label: '預期天氣', value: '32-36°C · 盛夏高溫', variant: 'pink' },
-    { icon: 'map-pin', label: '主要駐點', value: '大阪市區 · 難波 / 心齋橋', variant: 'green' },
+    { icon: 'map-pin', label: '住宿', value: 'Ostay Vermillion Namba · 難波東', variant: 'green' },
+  ],
+}
+
+export const accommodation = {
+  name: 'Ostay Vermillion Namba',
+  rating: 4.4,
+  totalRatings: 252,
+  address: '大阪市浪速區難波東 3-7-12（〒556-0025）',
+  phone: '03-4588-3364',
+  website: 'https://vermillion.suzaku.style/',
+  summary: '公寓式飯店，房間寬敞、全配廚房與陽台，適合 8 人家庭長住。自助式 check-in、無前台。',
+  nearestStations: [
+    { name: 'JR 芦原橋駅（大阪環狀線）', walk: '步行 9 分 / 665m', best: '✅ 最近' },
+    { name: '地鐵 大國町駅（御堂筋線 / 四つ橋線）', walk: '步行 12 分 / 823m', best: '轉乘彈性高' },
+    { name: 'JR / 南海 新今宮駅', walk: '步行約 10–12 分', best: 'HARUKA / Rapi:t 機場直達' },
+  ],
+  notes: [
+    '🅿️ 附停車場與小庭園，全棟密碼鎖出入',
+    '🏨 無前台、全自助服務（含行李寄送請自行聯絡黑貓）',
+    '🍳 廚房配備齊全（冰箱、爐、烤箱），可自煮省餐費',
+    '🚇 3 條地鐵線 + 2 條 JR 線 20 分鐘內可達，交通極方便',
   ],
 }
 
@@ -31,9 +52,10 @@ export const days = [
     timeline: [
       { time: '18:05', content: '關西機場 KIX 抵達' },
       { time: '18:05 – 19:30', content: '入境、領行李、取預訂票券、購買 <strong>ICOCA</strong>' },
-      { time: '19:30', content: '搭乘 HARUKA / Rapi:t 進市區（依住宿區決定）' },
-      { time: '20:30', content: '飯店 Check-in' },
-      { time: '21:00', content: '便利商店或飯店附近輕食' },
+      { time: '19:30', content: '<strong>南海 Rapi:t</strong> KIX → 新今宮（約 40 分 / ¥1,490）｜或 JR HARUKA → 天王寺換環狀線 1 站到芦原橋' },
+      { time: '20:15', content: '新今宮駅 → 步行約 10 分到飯店 <strong>Ostay Vermillion Namba</strong>（難波東）' },
+      { time: '20:30', content: '自助 Check-in（密碼鎖 + 無前台，務必事前確認入住流程）' },
+      { time: '21:00', content: '飯店對面 Lawson / 大國町商店街輕食，也可直接用房內廚房煮泡麵' },
       { time: '22:00', content: '好好休息，為明天充電' },
     ],
     highlights: [
@@ -71,7 +93,7 @@ export const days = [
     tag: { text: '✨ Google 已驗證', variant: 'orange' },
     badgeGradient: 'from-cyan-500 to-cyan-600',
     timeline: [
-      { time: '09:00', content: '飯店出發｜御堂筋線 → 本町 → 中央線 → 大阪港，約 25 分鐘 ¥280/人' },
+      { time: '09:00', content: '飯店出發｜步行 12 分至 <strong>大國町駅</strong> → 御堂筋線 → 本町 → 中央線 → 大阪港，總計約 <strong>35 分 / ¥240</strong>（含步行）' },
       { time: '09:30 – 12:30', content: '<strong>海遊館</strong>｜週六 09:30 開館（⭐ 4.5 / 57,519 則評論）' },
       { time: '12:30 – 13:00', content: '天保山 Market Place 輕食點心｜<em>正餐留到後面吃，Market Place 食物評價普通 3.9</em>' },
       { time: '13:00 – 14:30', content: '<strong>LEGOLAND 樂高探索中心</strong>｜Market Place 3F（⭐ 4.1 / 4,772 則評論）' },
@@ -151,7 +173,7 @@ export const days = [
     tag: { text: '✨ Google 已驗證', variant: 'orange' },
     badgeGradient: 'from-orange-500 to-orange-600',
     timeline: [
-      { time: '07:30', content: '飯店出發｜JR 夢咲線至環球城站（難波約 20 分、梅田約 15 分，僅轉 1 次）' },
+      { time: '07:30', content: '飯店出發｜步行 9 分至 <strong>JR 芦原橋駅</strong> → 大阪環狀線 → 西九條 → JR 夢咲線 → 環球城站，總計約 <strong>30 分 / ¥190</strong>（含步行）' },
       { time: '08:00 – 08:30', content: '抵達 USJ 提早排隊｜⭐ 4.5 / 150,349 則評論（全球熱門排名前段）' },
       { time: '08:30', content: '開園衝刺｜<strong>APP 搶任天堂世界「整理券」</strong>（EP7 持有者可跳過）' },
       { time: '09:00 – 12:30', content: '<strong>超級任天堂世界</strong>｜瑪利歐賽車 + 耀西的冒險 + 能量手環互動' },
@@ -214,8 +236,8 @@ export const days = [
     tag: { text: '✨ Google 已驗證', variant: 'orange' },
     badgeGradient: 'from-violet-500 to-violet-600',
     timeline: [
-      { time: '08:30', content: '飯店出發｜JR 新快速 → 京都站（30 分 / ¥580）' },
-      { time: '09:15', content: '京都站 → JR 嵯峨野線 1 站 → 梅小路京都西駅 → 步行 2 分鐘' },
+      { time: '08:30', content: '飯店出發｜步行 9 分至 <strong>JR 芦原橋駅</strong> → 大阪環狀線 → 大阪駅 → JR 新快速 → 京都（總計約 <strong>55 分 / ¥820</strong>，含步行）' },
+      { time: '09:25', content: '京都駅 → JR 嵯峨野線 1 站 → 梅小路京都西駅 → 步行 2 分鐘' },
       { time: '09:30 – 13:00', content: '<strong>京都鐵道博物館</strong>｜週一 10:00 開館（⭐ 4.5 / 19,234 則評論）' },
       { time: '13:00 – 14:00', content: '館內午餐｜<strong>食堂車車廂餐廳</strong>看新幹線經過邊用餐' },
       { time: '14:00 – 14:10', content: '步行 7 分鐘至京都水族館（梅小路公園內）' },
@@ -277,9 +299,9 @@ export const days = [
     tag: { text: '✨ Google 已驗證', variant: 'orange' },
     badgeGradient: 'from-emerald-500 to-emerald-600',
     timeline: [
-      { time: '09:00', content: '大阪難波出發｜近鐵奈良線直達（40 分 / ¥680）' },
-      { time: '09:40 – 09:45', content: '近鐵奈良駅 → 步行 5 分鐘至奈良公園' },
-      { time: '09:45 – 11:45', content: '<strong>奈良公園餵鹿</strong>｜⭐ 4.6 / 72,261 則評論（約 1,200 隻野生鹿）' },
+      { time: '09:00', content: '飯店出發｜步行 12 分至 <strong>大國町駅</strong> → 御堂筋線 1 站 → 難波駅 → 近鐵奈良線直達奈良（總計約 <strong>60 分 / ¥920</strong>，含步行）' },
+      { time: '10:00 – 10:05', content: '近鐵奈良駅 → 步行 5 分鐘至奈良公園' },
+      { time: '10:05 – 11:45', content: '<strong>奈良公園餵鹿</strong>｜⭐ 4.6 / 72,261 則評論（約 1,200 隻野生鹿）' },
       { time: '11:45 – 12:00', content: '步行 10 分鐘穿越公園至東大寺' },
       { time: '12:00 – 13:30', content: '<strong>東大寺大佛殿</strong>｜⭐ 4.7 / 30,436 則評論（世界最大木造建築）' },
       { time: '13:30 – 15:00', content: '<strong>Ten. Ten. Cafe 午餐</strong>｜東大寺步行 3 分（⭐ 4.5 / 1,347 則 · 有兒童菜單）' },
@@ -377,7 +399,7 @@ export const days = [
     tag: { text: '✨ Google 已驗證', variant: 'orange' },
     badgeGradient: 'from-pink-400 to-pink-500',
     timeline: [
-      { time: '09:00', content: '飯店出發｜堺筋線直達扇町駅（10–15 分 / ¥240）' },
+      { time: '09:00', content: '飯店出發｜步行 9 分至 <strong>JR 芦原橋駅</strong> → 大阪環狀線 → 天滿駅 → 步行 8 分至 Kids Plaza（總計約 <strong>30 分 / ¥190</strong>，含步行）' },
       { time: '09:30 – 12:30', content: '<strong>Kids Plaza Osaka</strong>｜週三 09:30 開館（⭐ 4.4 / 4,168 則評論）' },
       { time: '12:30 – 12:40', content: '步行 3 分鐘至天神橋筋商店街' },
       { time: '12:40 – 14:00', content: '<strong>天神橋筋商店街午餐</strong>｜日本最長商店街（2.6km）' },
@@ -452,9 +474,9 @@ export const days = [
       { time: '08:00', content: '飯店早餐' },
       { time: '08:30 – 09:30', content: '整理行李' },
       { time: '09:30 – 10:30', content: '飯店附近最後採買（藥妝、伴手禮）' },
-      { time: '10:30', content: 'Check-out' },
-      { time: '10:45', content: '搭乘 HARUKA / Rapi:t 前往機場' },
-      { time: '11:30 – 12:00', content: '抵達關西機場' },
+      { time: '10:30', content: '飯店 Check-out（自助退房，把鑰匙放回指定位置）' },
+      { time: '10:40', content: '步行 10 分至 <strong>新今宮駅</strong> → 南海 Rapi:t 直達 KIX（約 <strong>50 分 / ¥1,490</strong>，含步行）' },
+      { time: '11:40 – 12:00', content: '抵達關西機場' },
       { time: '12:00 – 13:30', content: 'Check-in、退稅、安檢' },
       { time: '14:00', content: '班機起飛' },
     ],
@@ -530,12 +552,13 @@ export const tips = [
   {
     icon: 'map-pin',
     variant: 'green',
-    title: '住宿區推薦',
+    title: '住宿：Ostay Vermillion Namba',
     items: [
-      '<strong>難波 / 心齋橋</strong>（⭐⭐⭐⭐⭐）逛街方便',
-      '<strong>新今宮 / 天王寺</strong>（⭐⭐⭐⭐）HARUKA 直達',
-      '<strong>梅田 / 大阪站</strong>（⭐⭐⭐⭐）京都直達最快',
-      'USJ 周邊適合玩 2 天但其他景點遠',
+      '📍 <strong>難波東 3-7-12</strong>（浪速區，⭐ 4.4 / 252 則評論）',
+      '🚇 最近：JR <strong>芦原橋駅 9 分</strong>、地鐵大國町 12 分、新今宮 10 分',
+      '🏨 公寓式飯店｜全配廚房 + 陽台，適合 8 人家庭',
+      '⚠️ <strong>自助 Check-in</strong>（無前台、密碼鎖），事前確認流程',
+      '💡 往 USJ / 京都 / 奈良 / 海遊館 皆 30–60 分內可達',
     ],
   },
 ]
