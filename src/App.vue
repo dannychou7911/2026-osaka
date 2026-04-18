@@ -6,6 +6,7 @@ import { useScrollReveal } from './composables/use-scroll-reveal.js'
 import TheNav from './components/TheNav.vue'
 import TheHero from './components/TheHero.vue'
 import InfoBar from './components/InfoBar.vue'
+import AccommodationSection from './components/AccommodationSection.vue'
 import OverviewRibbon from './components/OverviewRibbon.vue'
 import DayCard from './components/DayCard.vue'
 import TipsSection from './components/TipsSection.vue'
@@ -20,6 +21,7 @@ useScrollReveal()
   <TheNav />
   <TheHero />
   <InfoBar :items="tripInfo.infoBar" />
+  <AccommodationSection />
   <OverviewRibbon />
 
   <!-- Itinerary Section -->
