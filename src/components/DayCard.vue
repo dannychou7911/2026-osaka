@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { recommendations } from '../data/recommendations.js'
+import { mapUrl, resolveMapLinks } from '../utils/map-link.js'
 
 const props = defineProps({
   day: {
@@ -98,7 +99,7 @@ const highlightVariants = {
           <!-- Content -->
           <div
             class="text-[0.9375rem] text-slate-700"
-            v-html="item.content"
+            v-html="resolveMapLinks(item.content)"
           />
         </div>
       </div>
@@ -119,7 +120,7 @@ const highlightVariants = {
           <p
             v-if="highlight.content"
             class="text-[0.9375rem] leading-relaxed text-slate-600"
-            v-html="highlight.content"
+            v-html="resolveMapLinks(highlight.content)"
           />
           <ul
             v-if="highlight.list && highlight.list.length"
@@ -129,7 +130,7 @@ const highlightVariants = {
               v-for="(li, liIndex) in highlight.list"
               :key="liIndex"
               class="mb-1"
-              v-html="li"
+              v-html="resolveMapLinks(li)"
             />
           </ul>
           <!-- Tags -->
@@ -224,7 +225,12 @@ const highlightVariants = {
               <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-sky-100 text-xs font-bold text-sky-700">
                 {{ index + 1 }}
               </span>
-              {{ spot.name }}
+              <a
+                :href="mapUrl(spot.name)"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map-link"
+              >{{ spot.name }}</a>
             </h4>
 
             <!-- Why -->

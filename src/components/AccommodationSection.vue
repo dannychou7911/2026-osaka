@@ -1,12 +1,13 @@
 <script setup>
 import { computed } from 'vue'
 import { accommodation } from '../data/itinerary.js'
+import { mapUrl } from '../utils/map-link.js'
 
-const mapQuery = computed(() =>
-  encodeURIComponent(`${accommodation.name} ${accommodation.address}`)
+const mapQuery = computed(() => `${accommodation.name} ${accommodation.address}`)
+const mapEmbedUrl = computed(
+  () => `https://www.google.com/maps?q=${encodeURIComponent(mapQuery.value)}&output=embed`
 )
-const mapEmbedUrl = computed(() => `https://www.google.com/maps?q=${mapQuery.value}&output=embed`)
-const mapLinkUrl = computed(() => `https://www.google.com/maps/search/?api=1&query=${mapQuery.value}`)
+const mapLinkUrl = computed(() => mapUrl(mapQuery.value))
 </script>
 
 <template>
@@ -91,7 +92,14 @@ const mapLinkUrl = computed(() => `https://www.google.com/maps/search/?api=1&que
               :key="i"
               class="rounded-card-sm bg-white border border-slate-200 p-3.5"
             >
-              <p class="font-heading font-semibold text-sky-900 text-[0.9375rem] mb-1">{{ s.name }}</p>
+              <p class="font-heading font-semibold text-sky-900 text-[0.9375rem] mb-1">
+                <a
+                  :href="mapUrl(s.name)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="map-link"
+                >{{ s.name }}</a>
+              </p>
               <p class="text-slate-600 text-sm">{{ s.walk }}</p>
               <p class="text-emerald-600 text-xs font-medium mt-1">{{ s.best }}</p>
             </li>
